@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@import './base/fonts.css';
+
+@theme {
+  --color-light-red: hsl(0, 100%, 67%);
+  --color-orangey-yellow: hsl(39, 100%, 56%);
+  --color-green-teal: hsl(166, 100%, 37%);
+  --color-cobalt-blue: hsl(234, 85%, 45%);
+
+  --color-soft-periwinke: hsl(245.95, 100%, 74.31%);
+  --color-ultrasonic-blue: hsl(252.71, 69.11%, 48.24%);
+  --color-bright-indigo: hsl(245.93, 81.25%, 56.08%);
+  --color-bright-indigo-2: hsl(241.25, 82.76%, 54.51%);
+  --color-majorelle-blue: hsl(251.49, 98.95%, 62.75%);
+  
+  --color-white: hsl(0, 0%, 100%);
+  --color-pale-blue: hsl(221, 100%, 96%);
+  --color-light-lavender: hsl(241, 100%, 89%);
+  --color-dark-gray-blue: hsl(224, 30%, 27%);
+  --color-persian-blue: hsla(241, 72%, 46%, 0);
+
+  --font-primary: 'Hanken Grotesk', sans-serif;
+  --font-secondary: 'Gilroy';
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--color-pale-blue);
+}
