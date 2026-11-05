@@ -1,4 +1,4 @@
-const Result = () => (
+const ResultCard = () => (
   <div className='flex flex-col items-center pt-6 pb-8 px-9 bg-linear-to-b from-majorelle-blue to-bright-indigo-2 rounded-b-3xl md:rounded-3xl md:w-fit'>
     <h1 className='text-lg text-light-lavender font-semibold'>Your Result</h1>
     <div className='flex flex-col items-center justify-center gap-3 h-40 w-40 rounded-full my-6 bg-linear-to-b from-ultrasonic-blue to-bright-indigo'>
@@ -11,4 +11,4 @@ const Result = () => (
   </div>
 );
 
-export default Result;
+export default ResultCard;
