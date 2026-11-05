@@ -6,12 +6,12 @@ const SummaryCard = () => {
   const { data, isLoading, error } = useSummaryData();
 
   return (
-    <section className='px-6 pt-6 pb-9 md:w-80'>
+    <section className='flex flex-col justify-between px-6 pt-6 pb-9 md:w-80'>
       <h3 className='text-lg font-bold'>Summary</h3>
 
-      {isLoading && <p>Carregando resultados...</p>}
+      {isLoading && <p className='text-center font-bold text-dark-gray-blue/50'>Carregando resultados...</p>}
 
-      {error && <p>{error}</p>}
+      {error && <p className='text-center font-bold text-light-red/50'>{error}</p>}
 
       {!isLoading && !error && (
         <ul className='flex flex-col gap-4 my-6'>
