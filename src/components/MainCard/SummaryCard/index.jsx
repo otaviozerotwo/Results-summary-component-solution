@@ -9,7 +9,7 @@ const SummaryCard = () => {
     <section className='flex flex-col justify-between px-9 py-9 md:w-86'>
       <h3 className='text-xl font-bold'>Summary</h3>
 
-      {isLoading && <p className='text-center font-bold text-dark-gray-blue/50'>Carregando resultados...</p>}
+      {isLoading && <p className='text-center font-bold text-dark-gray-blue/50'>Loading results...</p>}
 
       {error && <p className='text-center font-bold text-light-red/50'>{error}</p>}
 
