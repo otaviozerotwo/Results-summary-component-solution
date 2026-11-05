@@ -1,5 +1,6 @@
 const Button = ({ text }) => (
-  <button 
+  <button
+    type='button' 
     className='
       bg-dark-gray-blue 
     text-white 
