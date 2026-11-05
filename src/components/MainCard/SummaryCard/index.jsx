@@ -6,8 +6,8 @@ const SummaryCard = () => {
   const { data, isLoading, error } = useSummaryData();
 
   return (
-    <section className='flex flex-col justify-between px-6 pt-6 pb-9 md:w-80'>
-      <h3 className='text-lg font-bold'>Summary</h3>
+    <section className='flex flex-col justify-between px-9 py-9 md:w-86'>
+      <h3 className='text-xl font-bold'>Summary</h3>
 
       {isLoading && <p className='text-center font-bold text-dark-gray-blue/50'>Carregando resultados...</p>}
 
