@@ -27,37 +27,6 @@ const SummaryCard = () => {
         </ul>
       )}
 
-      {/* <div className='flex flex-col gap-4 my-6'>
-        <SummaryItem
-          bgColor='bg-light-red/5'
-          textColor='text-light-red'
-          icon={iconReaction} 
-          name='Reaction'
-          score='80'
-        />
-        <SummaryItem
-          bgColor='bg-orangey-yellow/5'
-          textColor='text-orangey-yellow'
-          icon={iconMemory} 
-          name='Memory'
-          score='92'
-        />
-        <SummaryItem
-          bgColor='bg-green-teal/5'
-          textColor='text-green-teal'
-          icon={iconVerbal} 
-          name='Verbal'
-          score='61'
-        />
-        <SummaryItem
-          bgColor='bg-cobalt-blue/5'
-          textColor='text-cobalt-blue'
-          icon={iconVisual} 
-          name='Visual'
-          score='73'
-        />
-      </div> */}
-
       <Button text='Continue' />
     </section>
   );
