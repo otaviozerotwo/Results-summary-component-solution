@@ -1,11 +1,13 @@
-import summaryData from '../data/data.json';
-
 export const fetchSummaryData = async () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(summaryData);
+  const response = await fetch(
+    `${import.meta.env.BASE_URL}data/data.json`
+  );
 
-      reject(new Error('Falha ao carregar dados.'));
-    }, 1000);
-  });
+  if (!response.ok) {
+    throw new Error(`Failed to load data. HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  return data;
 };

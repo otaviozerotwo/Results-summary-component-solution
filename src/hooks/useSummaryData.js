@@ -14,7 +14,7 @@ export const useSummaryData = () => {
         setData(result);
       // eslint-disable-next-line no-unused-vars
       } catch (err) {
-        setError('Não foi possível carregar o resumo.');
+        setError('Unable to load results.');
       } finally {
         setIsLoading(false);
       }
