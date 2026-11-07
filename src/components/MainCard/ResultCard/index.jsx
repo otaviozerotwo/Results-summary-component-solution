@@ -1,18 +1,11 @@
 import { useMemo } from 'react';
 import { useSummaryData } from '../../../hooks/useSummaryData';
+import { calculateAverage } from '../../../utils/calculateAverage';
 
 const ResultCard = () => {
   const { data } = useSummaryData();
 
-  const finalScore = useMemo(() => {
-    if (!data || data.length === 0) {
-      return 0;
-    }
-
-    const total = data.reduce((acc, item) => acc + item.score, 0);
-
-    return Math.floor(total / data.length);
-  }, [data]);
+  const finalScore = useMemo(() => calculateAverage(data), [data]);
 
   return (
     <section className='flex flex-col items-center justify-between py-9 px-9 bg-linear-to-b from-majorelle-blue to-bright-indigo-2 rounded-b-3xl md:rounded-3xl md:w-86'>
