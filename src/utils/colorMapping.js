@@ -1,8 +1,8 @@
 const bgColorMapping = {
-  red: 'bg-light-red/5 text-light-red',
-  yellow: 'bg-orangey-yellow/5 text-orangey-yellow',
-  green: 'bg-green-teal/5 text-green-teal',
-  blue: 'bg-cobalt-blue/5 text-cobalt-blue'
+  red: 'bg-light-red/5',
+  yellow: 'bg-orangey-yellow/5',
+  green: 'bg-green-teal/5',
+  blue: 'bg-cobalt-blue/5'
 }
 
 const textColorMapping = {

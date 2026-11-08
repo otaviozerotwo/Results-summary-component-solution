@@ -6,6 +6,7 @@ import '@testing-library/jest-dom/vitest';
 
 import { useSummaryData } from '../src/hooks/useSummaryData';
 import SummaryCard from '../src/components/MainCard/SummaryCard';
+import SummaryItem from '../src/components/MainCard/SummaryCard/SummaryItem';
 
 vi.mock('../src/hooks/useSummaryData', () => ({
   useSummaryData: vi.fn(),
@@ -97,5 +98,28 @@ describe('SummaryCard', () => {
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
 
     expect(screen.queryByText('Loading results...')).not.toBeInTheDocument();
+  });
+});
+
+describe('SummaryItem', () => {
+  it.each([
+    ['red', 'bg-light-red/5', 'text-light-red'],
+    ['yellow', 'bg-orangey-yellow/5', 'text-orangey-yellow'],
+    ['green', 'bg-green-teal/5', 'text-green-teal'],
+    ['blue', 'bg-cobalt-blue/5', 'text-cobalt-blue'],
+  ])('applies the classes for color %s', (color, background, text) => {
+    render(
+      <ul>
+        <SummaryItem
+          category="Example"
+          score={80}
+          icon="/assets/images/icon-reaction.svg"
+          color={color}
+        />
+      </ul>
+    );
+
+    expect(screen.getByRole('listitem')).toHaveClass(background);
+    expect(screen.getByText('Example')).toHaveClass(text);
   });
 });
