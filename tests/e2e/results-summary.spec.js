@@ -8,7 +8,7 @@ test('display each category with its correct score', async ({ page }) => {
     { category: 'Visual', score: 73 },
   ];
 
-  await page.goto('http://localhost:5173/');
+  await page.goto('./');
 
   const items = page.getByRole('listitem');
 
