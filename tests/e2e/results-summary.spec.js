@@ -26,3 +26,15 @@ test('display each category with its correct score', async ({ page }) => {
     );
   }
 });
+
+test('displays the average score', async ({ page }) => {
+  await page.goto('./');
+
+  const result = page.getByRole('region', {
+    name: 'Your Result',
+  });
+
+  await expect(
+    result.getByText('76', { exact: true })
+  ).toBeVisible();
+});
