@@ -38,3 +38,76 @@ test('displays the average score', async ({ page }) => {
     result.getByText('76', { exact: true })
   ).toBeVisible();
 });
+
+test('displays an error when loading results fails', async ({ page }) => {
+  await page.route('**/data/data.json', async (route) => {
+    await route.fulfill({
+      status: 500,
+      contentType: 'application/json',
+      body: JSON.stringify({ message: 'Internal server error' }),
+    });
+  });
+
+  await page.goto('./');
+
+  await expect(
+    page.getByText('Unable to load results.', {
+      exact: true,
+    })
+  ).toBeVisible();
+
+  await expect(
+    page.getByText('Loading results...', { exact: true })
+  ).not.toBeVisible();
+
+  await expect(page.getByRole('listitem')).toHaveCount(0);
+});
+
+test('displays an error when a network failure occurs', async ({ page }) => {
+  await page.route('**/data/data.json', async (route) => {
+    await route.abort('failed');
+  });
+
+  await page.goto('./');
+
+  await expect(
+    page.getByText('Unable to load results.', {
+      exact: true,
+    })
+  ).toBeVisible();
+
+  await expect(
+    page.getByText('Loading results...', { exact: true })
+  ).not.toBeVisible();
+
+  await expect(page.getByRole('listitem')).toHaveCount(0);
+});
+
+test('displays loading until results arrive', async ({ page }) => {
+  let releaseRequest;
+
+  const responseGate = new Promise((resolve) => {
+    releaseRequest = resolve;
+  });
+
+  await page.route('**/data/data.json', async (route) => {
+    await responseGate;
+    await route.continue();
+  });
+
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+
+  const loading = page.getByText('Loading results...', {
+    exact: true,
+  });
+
+  try {
+    await expect(loading).toBeVisible();
+    await expect(page.getByRole('listitem')).toHaveCount(0);
+  } finally {
+    releaseRequest();
+  }
+
+  await expect(page.getByRole('listitem')).toHaveCount(4);
+  await expect(loading).not.toBeVisible();
+});
